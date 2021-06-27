@@ -22,7 +22,7 @@ echo "Configuring and building Camvox ..."
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
-make 
+make -j4
 
 cd ..
 

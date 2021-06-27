@@ -3,14 +3,16 @@
 #include "LocalMapping.h"
 #include "LoopClosing.h"
 
+#include <boost/thread/thread.hpp>
+
 #define pi (3.14159267)
 #define rad2deg(x) (x) * 180 / pi
 #define deg2rad(x) (x) * pi / 180
 
 bool color2dDepth = false;
-string strSettingPath_ = "/home/zyw/catkin_ws/src/camvox/isee-camvox/camvox/config/camera.yaml";
-string RGBPath_ = "/home/zyw/catkin_ws/src/camvox/isee-camvox/camvox/calibration/calibration.bmp";
-string PcdPath_ = "/home/zyw/catkin_ws/src/camvox/isee-camvox/camvox/calibration/calibration.pcd"; 
+string strSettingPath_ = "/home/dikey/Documents/repos/camvox_ws/src/CamVox/isee-camvox/camvox/online/Livox.yaml";
+string RGBPath_ = "/home/dikey/Documents/repos/camvox_ws/src/CamVox/isee-camvox/camvox/calibration/calibration.bmp";
+string PcdPath_ = "/home/dikey/Documents/repos/camvox_ws/src/CamVox/isee-camvox/CamVox.pcd"; 
 
 
 // kdtree and pcd setting
@@ -51,8 +53,8 @@ namespace Camvox
     extrinsic_params << test_angle[0], test_angle[1], test_angle[2], T_[0], T_[1], T_[2];
 
      // read Camera image
-    origin_RGB_ = imread(_RGB_path, CV_LOAD_IMAGE_UNCHANGED);
-    imRGB_ = imread(_RGB_path, CV_LOAD_IMAGE_UNCHANGED);
+    origin_RGB_ = imread(_RGB_path, IMREAD_UNCHANGED);
+    imRGB_ = imread(_RGB_path, IMREAD_UNCHANGED);
 
     // intercept RGB image
     rect_.x = 40;
@@ -140,8 +142,8 @@ namespace Camvox
     cy_ = fSettings["Camera.cy"];
     k1_ = fSettings["Camera.k1"];
     k2_ = fSettings["Camera.k2"];
-    p1_ = fSettings["Camera.P1"];
-    p2_ = fSettings["Camera.P2"];
+    p1_ = fSettings["Camera.p1"];
+    p2_ = fSettings["Camera.p2"];
     k3_ = fSettings["Camera.k3"];
     bf = fSettings["Camera.bf"];
     width_ = fSettings["Camera.width"];
@@ -150,9 +152,9 @@ namespace Camvox
     rect_.y = fSettings["Rect.y"];
     rect_.width = fSettings["Rect.width"];
     rect_.height = fSettings["Rect.height"];
-
     mDepthMapFactor_ = fSettings["DepthMapFactor"];
     mDepthMapFactor_ = 1 / mDepthMapFactor_;
+    return true;
   }
 
   //***********************************************Projection***********************************************************************/
@@ -1103,8 +1105,8 @@ namespace Camvox
         loadPcd(PcdPath_);
     loadParams(strSettingPath_);
  // read Camera image
-    origin_RGB_ = imread(RGBPath_, CV_LOAD_IMAGE_UNCHANGED);
-    imRGB_ = imread(RGBPath_, CV_LOAD_IMAGE_UNCHANGED);
+    origin_RGB_ = imread(RGBPath_, IMREAD_UNCHANGED);
+    imRGB_ = imread(RGBPath_, IMREAD_UNCHANGED);
 
     // intercept RGB image
     rect_.x = 40;

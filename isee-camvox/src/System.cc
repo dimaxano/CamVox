@@ -6,9 +6,9 @@
 #include <iomanip>
 #include <time.h>
 
-string strSettingPath = "/home/zyw/catkin_ws/src/camvox/isee-camvox/camvox/config/camera.yaml";
-string RGBPath = "/home/zyw/catkin_ws/src/camvox/isee-camvox/camvox/calibration/calibration.bmp";
-string PcdPath = "/home/zyw/catkin_ws/src/camvox/isee-camvox/camvox/calibration/calibration.pcd"; 
+string strSettingPath = "/home/dikey/Documents/repos/camvox_ws/src/CamVox/isee-camvox/camvox/online/Livox.yaml";
+string RGBPath = "/home/dikey/Documents/repos/camvox_ws/src/CamVox/isee-camvox/camvox/calibration/calibration.bmp";
+string PcdPath = "/home/dikey/Documents/repos/camvox_ws/src/CamVox/isee-camvox/CamVox.pcd"; 
 string projectionType = "both";
 bool isEnhanceImg = false;
 bool isFillImg = true;
@@ -81,7 +81,9 @@ namespace Camvox
         mpPointCloudMapping = make_shared<PointCloudMapping>(resolution, meank, thresh);                                    //*动态内存中分配一个对象并初始化它 pointcouldMapping r m t setting
 
         //Initialize the Calibrating thread and launch
-        mpCalibratingter = new Calibrating(strSettingPath,RGBPath,PcdPath,projectionType,isEnhanceImg,isFillImg);
+        
+        mpCalibratingter = new Calibrating(strSettingsFile,RGBPath,PcdPath,projectionType,isEnhanceImg,isFillImg);
+        
         mptCalibrating = new thread(&Camvox::Calibrating::Run, mpCalibratingter);
 
         //Initialize the Tracking thread

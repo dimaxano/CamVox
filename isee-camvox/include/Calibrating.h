@@ -28,6 +28,8 @@
 #include <pcl/visualization/pcl_visualizer.h>
 
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/opencv.hpp>
 
 using namespace Eigen;
 using namespace cv;
