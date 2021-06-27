@@ -1,4 +1,15 @@
-# CamVox
+# CamVox, 20.04, ROS Noetic
+
+## Note from @dimaxano
+
+This fork allows you to build CamVox without bells and whistles on Ubuntu 20.04 and ROS Noetic
+
+What changed from original implementation:
+1. Changed build system for ROS part from rosbuild to catkin
+2. Applied some bug fixes which are known from ORB_SLAM2
+3. Pay attetion, there are some hardoded paths inside the code. I am not sure how they work, so it is better to change them to equivaent paths on your PC: [1](https://github.com/dimaxano/CamVox/blob/2b70b197dfac644948e299ae8433e0a0be8fddc7/isee-camvox/src/Calibrating.cc#L13) and [2](https://github.com/dimaxano/CamVox/blob/7d5cd363d2c6a2ee7fac3b7c8236fc156be2a7ca/isee-camvox/src/System.cc#L9)
+4. Add support for C++14 (just changed flag during compilation, nothing more)
+5. Add OpenCV 4 support
 
 ## A Low-cost and Accurate Lidar-assisted Visual SLAM System
 
