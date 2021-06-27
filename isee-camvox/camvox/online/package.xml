@@ -1,0 +1,20 @@
+<package format="3">
+  <description>online</description>
+  <maintainer email="dimm.klimenkov@gmail.com">Dmitry Klimenkov</maintainer>
+  <name>online</name>
+  <version>1.0.0</version>
+  <author>YueWen Zhu</author>
+  <license>GPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>tf</depend>
+  <depend>sensor_msgs</depend>
+  <depend>image_transport</depend>
+  <depend>cv_bridge</depend>
+
+</package>
+
+
+

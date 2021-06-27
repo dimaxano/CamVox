@@ -14,9 +14,16 @@ Camera.k1: -0.12
 Camera.k2: 0.1162
 Camera.p1: 0.0
 Camera.p2: 0.0
+Camera.k3: 0.0
 
 Camera.width: 1520  
-Camera.height: 568   
+Camera.height: 568
+
+Rect.x: 40
+Rect.y: 40
+Rect.width: 1300
+Rect.height: 500
+
 
 # Camera frames per second 
 Camera.fps: 10

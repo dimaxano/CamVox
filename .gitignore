@@ -2,3 +2,7 @@ build
 **/*.jpg
 .vscode/
 **/*.so
+**/*.bmp
+**/*.pcd
+isee-camvox/tools/bin_vocabulary
+isee-camvox/camvox/online/camvox
